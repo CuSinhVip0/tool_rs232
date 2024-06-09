@@ -1,6 +1,6 @@
-TIMEOUT 1
-D:
-cd CTY4
+@echo off
+cd C:/
+cd tool_rs232
 npm start
 
 cmd /k
