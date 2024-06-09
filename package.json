@@ -6,6 +6,7 @@
     "scripts": {
         "start": "pm2 start npm -- start",
         "stop": "pm2 stop 0",
+        "status": "pm2 status",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
