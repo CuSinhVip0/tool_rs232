@@ -89,6 +89,9 @@ app.get("/abc", (req, res) => {
 app.get("/test", (req, res) => {
     res.send("Hello World! This is testing");
 });
+app.get("/test2", (req, res) => {
+    res.send("Hello World! This is testing");
+});
 
 app.listen(app_port, () => {
     console.log(`Example app listening on port ${app_port}`);
