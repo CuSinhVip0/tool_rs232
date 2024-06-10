@@ -1,4 +1,8 @@
 @echo off
 cd C:/
 cd tool_rs232
-npm start
+call npm stop
+call npm start
+
+echo "Node build successfully"
+pause
