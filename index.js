@@ -1,7 +1,7 @@
 const SerialPort = require("serialport").SerialPort;
 const Readline = require("@serialport/parser-readline").ReadlineParser;
 const express = require("express");
-const app_port = 3001;
+const app_port = 3002;
 const app = express();
 app.use(express.json());
 
@@ -19,6 +19,22 @@ app.get("/rs232", (req, res) => {
             dataBits: 8,
             autoOpen: false,
         });
+
+        // SerialPort.list().then(ports => {
+        //     ports.forEach(port => {
+        //       const serialPort = new SerialPort(port.path, { autoOpen: false });
+        //       serialPort.open(err => {
+        //         if (err) {
+        //           console.log(`${port.path} is not in use`);
+        //         } else {
+        //           console.log(`${port.path} is in use`);
+        //           serialPort.close(); // Đóng cổng sau khi kiểm tra
+        //         }
+        //       });
+        //     });
+        //   }).catch(err => {
+        //     console.error(err);
+        //   });
 
         // Sử dụng parser để đọc dòng dữ liệu
         const parser = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));
@@ -67,7 +83,15 @@ app.get("/rs232", (req, res) => {
 });
 
 app.get("/abc", (req, res) => {
-    res.send("aaaa");
+    SerialPort.list()
+        .then((ports) => {
+            ports.forEach((port) => {
+                console.log(port.path); // In ra tên cổng COM (ví dụ: COM3)
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 });
 
 app.listen(app_port, () => {
