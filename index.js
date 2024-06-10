@@ -1,7 +1,7 @@
 const SerialPort = require("serialport").SerialPort;
 const Readline = require("@serialport/parser-readline").ReadlineParser;
 const express = require("express");
-const app_port = 3002;
+const app_port = 3001;
 const app = express();
 app.use(express.json());
 
@@ -83,15 +83,7 @@ app.get("/rs232", (req, res) => {
 });
 
 app.get("/abc", (req, res) => {
-    SerialPort.list()
-        .then((ports) => {
-            ports.forEach((port) => {
-                console.log(port.path); // In ra tên cổng COM (ví dụ: COM3)
-            });
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+    res.send("Hello World!");
 });
 
 app.listen(app_port, () => {
