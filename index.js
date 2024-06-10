@@ -3,7 +3,8 @@ const Readline = require("@serialport/parser-readline").ReadlineParser;
 const express = require("express");
 const app_port = 3001;
 const app = express();
-
+const cors = require("cors");
+app.use(cors());
 // Khởi tạo parser
 
 app.get("/rs232", (req, res) => {

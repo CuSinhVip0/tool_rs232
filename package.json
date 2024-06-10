@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "pm2 start index.js",
+        "start": "pm2 start --no-daemon index.js",
         "stop": "pm2 delete 0",
         "list": "pm2 list",
         "test": "pm2 kill"
@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.19.2",
         "expressjs": "^1.0.1",
         "pm2": "^5.4.0",
