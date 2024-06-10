@@ -83,14 +83,14 @@ app.get("/rs232", (req, res) => {
 });
 
 app.get("/abc", (req, res) => {
-    res.send("Hello World!");
+    res.status(200).send({ data: "Hello World!" });
 });
 
 app.get("/test", (req, res) => {
-    res.send("Hello World! This is testing");
+    res.send({ data: "Hello World! This is testing" });
 });
 app.get("/test2", (req, res) => {
-    res.send("Hello World! This is testing");
+    res.send({ data: "Hello World! This is testing" });
 });
 
 app.listen(app_port, () => {
